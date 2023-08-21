@@ -25,7 +25,9 @@ public class Program {
 		//"map" so funciona para stream e nao para list
 		//por isso que aqui primeiro convertemos para stream ( list.stream().map(new UpperCaseName()) ) e depois para list novamente ( .collect(Collectors.toList()); ) 
 		//stream - sequencia de dados
-		List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+		
+		//static method
+		List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
 		
 		//print
 		names.forEach(System.out::println);
