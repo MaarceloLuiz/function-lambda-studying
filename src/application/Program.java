@@ -27,7 +27,7 @@ public class Program {
 		//stream - sequencia de dados
 		
 		//static method
-		List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+		List<String> names = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList());
 		
 		//print
 		names.forEach(System.out::println);
