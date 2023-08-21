@@ -4,10 +4,10 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import entities.Product;
-import util.UpperCaseName;
 
 public class Program {
 
@@ -26,8 +26,10 @@ public class Program {
 		//por isso que aqui primeiro convertemos para stream ( list.stream().map(new UpperCaseName()) ) e depois para list novamente ( .collect(Collectors.toList()); ) 
 		//stream - sequencia de dados
 		
-		//static method
-		List<String> names = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList());
+		//lambda expression
+		Function<Product, String> func = p -> p.getName().toUpperCase();
+		
+		List<String> names = list.stream().map(func).collect(Collectors.toList());
 		
 		//print
 		names.forEach(System.out::println);
