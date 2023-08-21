@@ -4,7 +4,6 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import entities.Product;
@@ -27,9 +26,7 @@ public class Program {
 		//stream - sequencia de dados
 		
 		//lambda expression
-		Function<Product, String> func = p -> p.getName().toUpperCase();
-		
-		List<String> names = list.stream().map(func).collect(Collectors.toList());
+		List<String> names = list.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
 		
 		//print
 		names.forEach(System.out::println);
